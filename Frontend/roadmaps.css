@@ -1,0 +1,1396 @@
+/* =========================
+   ROOT VARIABLES
+========================= */
+
+:root{
+
+    --bg:#06141B;
+    --card:#0B1F29;
+    --text:#F5F7FA;
+
+    --primary:#00A86B;
+    --secondary:#00C897;
+    --accent:#34D399;
+
+    --gradient:linear-gradient(
+    135deg,
+    #00A86B,
+    #00C897
+    );
+}
+
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'JetBrains Mono', monospace;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#06141B;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:rgba(0,200,151,0.3);
+
+    border-radius:20px;
+}
+
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+.bg-glow{
+
+    position:fixed;
+
+    width:350px;
+    height:350px;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:0.12;
+
+    z-index:-1;
+}
+
+.glow1{
+
+    background:#00A86B;
+
+    top:-100px;
+    left:-100px;
+}
+
+.glow2{
+
+    background:#00C897;
+
+    bottom:-100px;
+    right:-100px;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+
+    width:100%;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    padding:18px 8%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:rgba(6,20,27,0.92);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(255,255,255,0.05);
+
+    z-index:1000;
+}
+
+
+/* LOGO */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+}
+
+.logo img{
+
+    width:52px;
+    height:52px;
+
+    border-radius:16px;
+}
+
+.logo span{
+
+    font-size:1.7rem;
+
+    font-weight:800;
+
+    background:linear-gradient(
+    to right,
+    #ffffff,
+    #8EF9C9,
+    #00C897
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+
+/* NAV LINKS */
+
+.nav-links{
+
+    display:flex;
+
+    gap:35px;
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#DCE7EC;
+
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+
+    color:#00C897;
+}
+
+
+/* =========================
+   HAMBURGER
+========================= */
+
+.hamburger{
+
+    width:52px;
+    height:52px;
+
+    border-radius:16px;
+
+    display:none;
+
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:6px;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,0.04);
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    backdrop-filter:blur(10px);
+
+    transition:0.3s ease;
+
+    z-index:2000;
+}
+
+.hamburger span{
+
+    width:22px;
+    height:2.5px;
+
+    border-radius:20px;
+
+    background:#ffffff;
+
+    transition:0.35s ease;
+}
+
+.hamburger.active span:nth-child(1){
+
+    transform:
+    rotate(45deg)
+    translateY(6px);
+}
+
+.hamburger.active span:nth-child(2){
+
+    opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+
+    transform:
+    rotate(-45deg)
+    translateY(-6px);
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu{
+
+    position:fixed;
+
+    top:90px;
+    right:-100%;
+
+    width:270px;
+
+    padding:28px;
+
+    border-radius:28px;
+
+    background:rgba(11,31,41,0.98);
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(18px);
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    z-index:1500;
+
+    transition:0.45s ease;
+}
+
+.mobile-menu.active{
+
+    right:20px;
+}
+
+.mobile-menu a{
+
+    text-decoration:none;
+
+    color:#DCE7EC;
+
+    padding:14px 18px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,0.03);
+
+    transition:0.3s;
+}
+
+.mobile-menu a:hover{
+
+    background:rgba(0,200,151,0.08);
+
+    color:#8EF9C9;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+    min-height:85vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:140px 8% 70px;
+}
+
+.hero-content{
+
+    max-width:900px;
+}
+
+.hero-badge{
+
+    width:fit-content;
+
+    margin:auto;
+
+    margin-bottom:24px;
+
+    padding:12px 20px;
+
+    border-radius:40px;
+
+    background:rgba(0,200,151,0.08);
+
+    border:1px solid rgba(0,200,151,0.15);
+
+    color:#8EF9C9;
+}
+
+.hero h1{
+
+    font-size:5rem;
+
+    line-height:1.05;
+
+    margin-bottom:24px;
+
+    font-weight:900;
+
+    letter-spacing:-3px;
+}
+
+.hero h1 span{
+
+    background:linear-gradient(
+    to right,
+    #8EF9C9,
+    #00C897
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+
+    color:#A7BCC5;
+
+    line-height:1.9;
+
+    max-width:760px;
+
+    margin:auto;
+
+    margin-bottom:36px;
+}
+
+.hero-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:16px 32px;
+
+    border-radius:18px;
+
+    background:var(--gradient);
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+
+    transform:
+    translateY(-4px)
+    scale(1.03);
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title{
+
+    font-size:3rem;
+
+    text-align:center;
+
+    margin-bottom:18px;
+
+    font-weight:800;
+}
+
+.section-title span{
+
+    background:linear-gradient(
+    to right,
+    #8EF9C9,
+    #00C897
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.section-subtitle{
+
+    max-width:760px;
+
+    margin:auto;
+
+    text-align:center;
+
+    color:#9FB4BE;
+
+    line-height:1.9;
+
+    margin-bottom:70px;
+}
+
+
+/* =========================
+   ROADMAP SECTION
+========================= */
+
+.roadmaps{
+
+    padding:80px 8%;
+}
+
+
+/* =========================
+   TIMELINE ROADMAPS
+========================= */
+
+.timeline-roadmaps{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:40px;
+
+    margin-top:90px;
+}
+
+
+/* CENTER LINE */
+
+.timeline-line{
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    top:0;
+
+    width:4px;
+
+    height:100%;
+
+    border-radius:30px;
+
+    background:linear-gradient(
+    180deg,
+    #00A86B,
+    #00C897
+    );
+
+    box-shadow:
+    0 0 18px rgba(0,200,151,0.25);
+}
+
+
+/* CARD */
+
+.timeline-card{
+
+    position:relative;
+
+    width:100%;
+
+    display:flex;
+}
+
+.timeline-card:nth-child(odd){
+
+    justify-content:flex-start;
+}
+
+.timeline-card:nth-child(even){
+
+    justify-content:flex-end;
+}
+
+
+/* DOT */
+
+.timeline-dot{
+
+    position:absolute;
+
+    left:50%;
+
+    top:45px;
+
+    transform:translateX(-50%);
+
+    width:28px;
+    height:28px;
+
+    border-radius:50%;
+
+    background:#00C897;
+
+    border:6px solid #06141B;
+
+    z-index:10;
+
+    box-shadow:
+    0 0 22px rgba(0,200,151,0.5);
+
+    animation:pulseDot 3s infinite;
+}
+
+@keyframes pulseDot{
+
+    0%,100%{
+        transform:
+        translateX(-50%)
+        scale(1);
+    }
+
+    50%{
+        transform:
+        translateX(-50%)
+        scale(1.12);
+    }
+}
+
+
+/* CONNECTOR */
+
+.timeline-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:56px;
+
+    width:55px;
+
+    height:2px;
+
+    background:linear-gradient(
+    90deg,
+    #00A86B,
+    #00C897
+    );
+}
+
+.timeline-card:nth-child(odd)::before{
+
+    right:calc(50% - 2px);
+}
+
+.timeline-card:nth-child(even)::before{
+
+    left:calc(50% - 2px);
+}
+
+
+/* =========================
+   ROADMAP CARD
+========================= */
+
+.timeline-card .roadmap-card{
+
+    width:calc(50% - 60px);
+
+    max-width:520px;
+}
+
+.roadmap-card{
+
+    position:relative;
+
+    padding:32px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+    145deg,
+    rgba(11,31,41,0.98),
+    rgba(16,43,56,0.94)
+    );
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    transition:0.35s ease;
+}
+
+.roadmap-card:hover{
+
+    transform:
+    translateY(-8px)
+    scale(1.02);
+
+    border-color:rgba(0,200,151,0.28);
+
+    box-shadow:
+    0 0 30px rgba(0,200,151,0.08);
+}
+
+
+/* GLOW */
+
+.card-glow{
+
+    position:absolute;
+
+    inset:0;
+
+    background:radial-gradient(
+    circle at top right,
+    rgba(0,200,151,0.10),
+    transparent 50%
+    );
+
+    opacity:0;
+
+    transition:0.4s;
+
+    z-index:-1;
+}
+
+.roadmap-card:hover .card-glow{
+
+    opacity:1;
+}
+
+
+/* HEADER */
+
+.roadmap-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:24px;
+}
+
+
+/* ICON */
+
+.roadmap-icon{
+
+    width:68px;
+    height:68px;
+
+    border-radius:22px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:1.8rem;
+
+    background:linear-gradient(
+    135deg,
+    rgba(0,168,107,0.18),
+    rgba(0,200,151,0.10)
+    );
+}
+
+
+/* LEVEL */
+
+.roadmap-level{
+
+    padding:10px 16px;
+
+    border-radius:30px;
+
+    font-size:0.78rem;
+
+    font-weight:700;
+}
+
+.beginner{
+
+    background:rgba(52,211,153,0.12);
+
+    color:#34D399;
+}
+
+.intermediate{
+
+    background:rgba(96,165,250,0.12);
+
+    color:#60A5FA;
+}
+
+.advanced{
+
+    background:rgba(251,191,36,0.12);
+
+    color:#FBBF24;
+}
+
+.expert{
+
+    background:rgba(239,68,68,0.12);
+
+    color:#F87171;
+}
+
+
+/* TEXT */
+
+.roadmap-card h2{
+
+    font-size:1.6rem;
+
+    margin-bottom:18px;
+}
+
+.roadmap-card p{
+
+    color:#9FB4BE;
+
+    line-height:1.8;
+
+    margin-bottom:26px;
+}
+
+
+/* TOPICS */
+
+.topics-list{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-bottom:30px;
+}
+
+.topics-list span{
+
+    padding:10px 16px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,0.04);
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    color:#DCE7EC;
+
+    font-size:0.82rem;
+
+    transition:0.3s;
+}
+
+.topics-list span:hover{
+
+    background:rgba(0,200,151,0.10);
+
+    border-color:rgba(0,200,151,0.18);
+
+    transform:translateY(-2px);
+}
+
+
+/* BUTTON */
+
+.roadmap-card button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:var(--gradient);
+
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.roadmap-card button:hover{
+
+    transform:translateY(-3px);
+}
+
+
+/* FEATURED */
+
+.featured-card{
+
+    border-color:rgba(0,200,151,0.22);
+
+    box-shadow:
+    0 0 28px rgba(0,200,151,0.06);
+}
+
+
+/* SHINE */
+
+.shine{
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:60%;
+    height:100%;
+
+    background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.05),
+    transparent
+    );
+
+    transform:skewX(25deg);
+
+    animation:shine 6s infinite;
+}
+
+@keyframes shine{
+
+    0%{
+        left:-120%;
+    }
+
+    100%{
+        left:180%;
+    }
+}
+
+
+/* =========================
+   DSA COMPLETE
+========================= */
+
+.dsa-complete-wrapper{
+
+    position:relative;
+
+    margin-top:80px;
+
+    padding:60px 34px;
+
+    border-radius:34px;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+    145deg,
+    rgba(11,31,41,0.98),
+    rgba(16,43,56,0.94)
+    );
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    text-align:center;
+}
+
+.complete-content h2{
+
+    font-size:3.2rem;
+
+    line-height:1.08;
+
+    margin-bottom:22px;
+
+    font-weight:900;
+
+    letter-spacing:-2px;
+}
+
+.complete-content h2 span{
+
+    background:linear-gradient(
+    to right,
+    #8EF9C9,
+    #00C897
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.complete-content p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:#A7BCC5;
+
+    line-height:1.8;
+
+    font-size:0.95rem;
+
+    margin-bottom:40px;
+}
+
+
+/* ORB */
+
+.completion-orb{
+
+    width:170px;
+    height:170px;
+
+    margin:auto;
+
+    margin-bottom:38px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+}
+
+.orb-core{
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    background:var(--gradient);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    z-index:5;
+
+    animation:orbPulse 4s infinite;
+}
+
+.orb-core span{
+
+    font-size:2rem;
+}
+
+@keyframes orbPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+.orb-ring{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:1px solid rgba(0,200,151,0.18);
+}
+
+.ring1{
+
+    width:120px;
+    height:120px;
+
+    animation:rotateRing 10s linear infinite;
+}
+
+.ring2{
+
+    width:160px;
+    height:160px;
+
+    animation:rotateRing 14s linear infinite reverse;
+}
+
+.ring3{
+
+    width:200px;
+    height:200px;
+
+    animation:rotateRing 18s linear infinite;
+}
+
+@keyframes rotateRing{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+
+/* ACHIEVEMENTS */
+
+.achievement-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+    gap:18px;
+
+    margin-top:20px;
+
+    margin-bottom:38px;
+}
+
+.achievement-card{
+
+    padding:24px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,0.03);
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    transition:0.35s ease;
+}
+
+.achievement-card:hover{
+
+    transform:
+    translateY(-6px)
+    scale(1.02);
+
+    border-color:rgba(0,200,151,0.22);
+}
+
+.achievement-icon{
+
+    width:56px;
+    height:56px;
+
+    margin:auto;
+
+    margin-bottom:18px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:1.5rem;
+
+    background:linear-gradient(
+    135deg,
+    rgba(0,168,107,0.18),
+    rgba(0,200,151,0.10)
+    );
+}
+
+.achievement-card h3{
+
+    font-size:1.1rem;
+
+    margin-bottom:10px;
+}
+
+.achievement-card p{
+
+    font-size:0.82rem;
+
+    line-height:1.6;
+
+    margin-bottom:0;
+}
+
+
+/* COMPLETE BUTTON */
+
+.complete-btn{
+
+    padding:15px 28px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:var(--gradient);
+
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.complete-btn:hover{
+
+    transform:
+    translateY(-4px)
+    scale(1.03);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    padding:60px 8%;
+
+    text-align:center;
+
+    color:#7F98A3;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:992px){
+
+    .timeline-line{
+
+        left:22px;
+
+        transform:none;
+    }
+
+    .timeline-card{
+
+        justify-content:flex-start !important;
+    }
+
+    .timeline-dot{
+
+        left:22px;
+
+        transform:none;
+    }
+
+    .timeline-card::before{
+
+        left:34px !important;
+
+        width:30px;
+    }
+
+    .timeline-card .roadmap-card{
+
+        width:100%;
+
+        max-width:100%;
+
+        margin-left:65px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hamburger{
+        display:flex;
+    }
+
+    .hero{
+
+        padding:120px 5% 60px;
+    }
+
+    .hero h1{
+
+        font-size:2.7rem;
+
+        letter-spacing:-2px;
+    }
+
+    .roadmaps{
+
+        padding:70px 5%;
+    }
+
+    .section-title{
+
+        font-size:2.2rem;
+    }
+
+    .timeline-roadmaps{
+
+        gap:24px;
+    }
+
+    .timeline-line{
+
+        left:12px;
+    }
+
+    .timeline-dot{
+
+        left:12px;
+
+        width:20px;
+        height:20px;
+
+        border-width:4px;
+    }
+
+    .timeline-card::before{
+
+        left:22px !important;
+
+        width:18px;
+
+        top:42px;
+    }
+
+    .timeline-card .roadmap-card{
+
+        margin-left:38px;
+
+        width:calc(100% - 38px);
+    }
+
+    .roadmap-card{
+
+        padding:24px;
+    }
+
+    .roadmap-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:18px;
+    }
+
+    .roadmap-icon{
+
+        width:58px;
+        height:58px;
+
+        font-size:1.5rem;
+    }
+
+    .roadmap-card h2{
+
+        font-size:1.35rem;
+    }
+
+    .dsa-complete-wrapper{
+
+        padding:50px 20px;
+    }
+
+    .complete-content h2{
+
+        font-size:2.2rem;
+    }
+
+    .achievement-grid{
+
+        gap:16px;
+    }
+}
+
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+
+@media(max-width:480px){
+
+    .hero h1{
+
+        font-size:2.2rem;
+    }
+
+    .section-title{
+
+        font-size:1.9rem;
+    }
+
+    .complete-content h2{
+
+        font-size:1.9rem;
+    }
+
+    .complete-btn{
+
+        width:100%;
+    }
+}

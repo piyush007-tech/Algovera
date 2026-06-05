@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0" />
+
+    <title>Contact | Algovera</title>
+
+    <link rel="stylesheet"
+    href="contact.css" />
+
+    <link rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <!-- BACKGROUND -->
+
+    <div class="bg-glow glow1"></div>
+    <div class="bg-glow glow2"></div>
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+
+            <img src="logo.png" alt="logo">
+
+            <span>Algovera</span>
+
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="roadmaps.html">Roadmap</a>
+
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="contact-hero">
+
+        <div class="hero-badge">
+
+            ✨ LET'S CONNECT
+
+        </div>
+
+        <h1>
+
+            Build Something
+            <span>Amazing Together</span>
+
+        </h1>
+
+        <p>
+
+            Have feedback, ideas or reviews?
+            Reach out anytime and help us
+            improve the learning experience.
+
+        </p>
+
+    </section>
+
+
+    <!-- CONTACT GRID -->
+
+    <section class="contact-grid">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="contact-info">
+
+
+            <!-- EMAIL CARD -->
+
+            <a href="mailto:yourmail@gmail.com"
+            class="info-card">
+
+                <div class="card-icon">
+                    📧
+                </div>
+
+                <div>
+
+                    <h3>Email Us</h3>
+
+                    <p>
+                        contact.algovera@gmail.com
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <!-- LINKEDIN -->
+
+            <a href="#"
+            class="info-card">
+
+                <div class="card-icon">
+                    📞
+                </div>
+
+                <div>
+
+                    <h3>Mobile</h3>
+
+                    <p>
+                        +91 83073-37363
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <!-- SUPPORT -->
+
+            <div class="info-card">
+
+                <div class="card-icon">
+                    🚀
+                </div>
+
+                <div>
+
+                    <h3>Support</h3>
+
+                    <p>
+                        Available 24/7 for users
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- REVIEW FORM -->
+
+        <div class="review-box">
+
+            <div class="review-glow"></div>
+
+            <h2>
+
+                Submit Your Review
+
+            </h2>
+
+            <p>
+
+                Your feedback helps us improve
+                Preplytics for everyone.
+
+            </p>
+
+
+            <form id="reviewForm">
+
+                <div class="input-group">
+
+                    <input
+                    type="text"
+                    id="name"
+                    placeholder="Your Name"
+                    required>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <input
+                    type="email"
+                    id="email"
+                    placeholder="Your Email"
+                    required>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <textarea
+                    id="review"
+                    placeholder="Write your review..."
+                    required></textarea>
+
+                </div>
+
+
+                <button type="submit">
+
+                    Submit Review
+
+                </button>
+
+            </form>
+
+
+            <!-- SUCCESS -->
+
+            <div class="success-message"
+            id="successMessage">
+
+                ✅ Review Submitted Successfully
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Algovera. All Rights Reserved.
+
+    </footer>
+
+
+    <!-- EMAIL JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+
+    <!-- SCRIPT -->
+
+    <script>
+
+        emailjs.init("tCxDmS-ud4rQ38m_9");
+
+        const form =
+        document.getElementById("reviewForm");
+
+        const success =
+        document.getElementById("successMessage");
+
+
+        form.addEventListener("submit",
+        function(e){
+
+            e.preventDefault();
+
+            emailjs.send(
+
+                "service_64t5cb1",
+
+                "template_zepd4sg",
+
+                {
+
+                    from_name:
+                    document.getElementById("name").value,
+
+                    from_email:
+                    document.getElementById("email").value,
+
+                    message:
+                    document.getElementById("review").value
+
+                }
+
+            )
+
+            .then(function(){
+
+                success.style.display = "flex";
+
+                form.reset();
+
+                setTimeout(() => {
+
+                    success.style.display = "none";
+
+                },3000);
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

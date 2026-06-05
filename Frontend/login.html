@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Algovera</title>
+
+    <link
+    rel="stylesheet"
+    href="auth.css">
+
+    <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+    <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+    <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <!-- =========================
+         BACKGROUND GLOW
+    ========================= -->
+
+    <div class="bg-glow glow1"></div>
+    <div class="bg-glow glow2"></div>
+
+
+    <!-- =========================
+         AUTH SECTION
+    ========================= -->
+
+    <section class="auth-section">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="auth-left">
+
+            <div class="auth-badge">
+
+                🔐 WELCOME BACK
+
+            </div>
+
+            <h1>
+
+                Continue Your
+                <span>DSA Journey</span>
+
+            </h1>
+
+            <p>
+
+                Login to access premium DSA
+                roadmaps, coding practice,
+                interview preparation and
+                your personalized dashboard.
+
+            </p>
+
+
+            <!-- FEATURES -->
+
+            <div class="auth-features">
+
+                <div class="feature-item">
+
+                    <div class="feature-icon">
+                        🚀
+                    </div>
+
+                    <span>
+                        Continue Your Learning
+                    </span>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <div class="feature-icon">
+                        📚
+                    </div>
+
+                    <span>
+                        Access Premium Roadmaps
+                    </span>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <div class="feature-icon">
+                        ⚡
+                    </div>
+
+                    <span>
+                        Crack Top Tech Interviews
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="auth-right">
+
+            <div class="form-glow"></div>
+
+            <div class="auth-card">
+
+
+                <!-- LOGO -->
+
+                <div class="auth-logo">
+
+                    <img
+                    src="logo.png"
+                    alt="Algovera Logo">
+
+                </div>
+
+
+                <h2>
+
+                    Welcome Back
+
+                </h2>
+
+                <p>
+
+                    Login to continue learning
+
+                </p>
+
+
+                <!-- FORM -->
+
+                <form id="loginForm">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Email Address
+
+                        </label>
+
+                        <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="input-group">
+
+    <label>
+
+        Password
+
+    </label>
+
+    <div class="password-wrapper">
+
+        <input
+        type="password"
+        id="password"
+        placeholder="Enter your password"
+        required>
+
+        <span
+        id="togglePassword"
+        class="eye-icon">
+
+            👁️
+
+        </span>
+
+    </div>
+
+</div>
+
+
+                    <!-- FORGOT PASSWORD -->
+
+                    <div class="forgot-password">
+
+                        <a href="forgot-password.html">
+
+                            Forgot Password?
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- BUTTON -->
+
+                    <button type="submit">
+
+                        Login Now
+
+                    </button>
+
+                </form>
+
+
+                <!-- DIVIDER -->
+
+                <div class="auth-divider">
+
+                    <span></span>
+
+                    <p>
+                        OR
+                    </p>
+
+                    <span></span>
+
+                </div>
+
+
+                <!-- SIGNUP -->
+
+                <div class="auth-bottom">
+
+                    Don't have an account?
+
+                    <a href="signup.html">
+
+                        Create Account
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EMAILJS -->
+
+    <script
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+
+
+    <!-- AUTH JS -->
+
+    <script src="auth.js"></script>
+
+</body>
+</html>

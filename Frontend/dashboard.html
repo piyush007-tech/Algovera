@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Algovera</title>
+
+    <link
+    rel="stylesheet"
+    href="dashboard.css">
+
+    <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+    <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+    <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- =========================================
+     BACKGROUND EFFECTS
+========================================= -->
+
+<div class="hero-grid"></div>
+
+<div class="hero-orb orb1"></div>
+
+<div class="hero-orb orb2"></div>
+
+<div class="hero-orb orb3"></div>
+
+
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
+<nav class="dashboard-navbar">
+
+    <div class="nav-logo">
+
+        <img
+        src="logo.png"
+        alt="Algovera">
+
+        <span>
+
+            Algovera
+
+        </span>
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="dashboard.html" class="active">
+
+            Dashboard
+
+        </a>
+
+        <a href="sheets.html">
+
+            Sheets
+
+        </a>
+
+        <a href="patterns.html">
+
+            Patterns
+
+        </a>
+
+        <a href="cheat-sheet.html">
+
+            Cheat Sheets
+
+        </a>
+
+    </div>
+
+
+    <div class="nav-profile">
+
+        <img id="profileAvatar" src="" alt="Profile">
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================
+     DASHBOARD HERO
+========================================= -->
+
+<section class="dashboard-hero">
+
+
+    <div class="dashboard-container">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="hero-left">
+
+
+            <div class="welcome-badge">
+
+    🚀 Welcome Back,
+    <span id="welcomeName">
+        User
+    </span>
+
+</div>
+
+
+            <h1 id="greetingText">
+
+    Good Evening 👋
+
+    <span id="userName">
+
+        User
+
+    </span>
+
+</h1>
+
+
+            <p>
+
+                Your interview preparation journey is
+                progressing faster than 78% of Algovera
+                learners. Stay consistent and unlock
+                your next achievement.
+
+            </p>
+
+
+<!-- =========================
+     TARGET COMPANY
+========================= -->
+
+<section class="target-company-section">
+
+    <div class="company-card">
+
+        <div class="company-header">
+
+            <h2>
+                🎯 Dream Company Tracker
+            </h2>
+
+            <p>
+                Select your target company and personalize your journey.
+            </p>
+
+        </div>
+
+        <div class="company-selector">
+
+            <select id="companySelect">
+
+                <option value="">
+                    Select Company
+                </option>
+
+                <option value="Google">
+                    Google
+                </option>
+
+                <option value="Amazon">
+                    Amazon
+                </option>
+
+                <option value="Microsoft">
+                    Microsoft
+                </option>
+
+                <option value="Meta">
+                    Meta
+                </option>
+
+                <option value="Uber">
+                    Uber
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+            <input
+            type="text"
+            id="otherCompany"
+            placeholder="Enter company name">
+
+            <button id="saveCompany">
+
+                Save Target
+
+            </button>
+
+        </div>
+
+        <div class="selected-company">
+
+            <span>
+
+                🎯 Current Target:
+
+            </span>
+
+            <h3 id="currentCompany">
+
+                Not Selected
+
+            </h3>
+
+        </div>
+
+    </div>
+
+</section>
+            <section class="streak-section">
+
+    <div class="streak-card">
+
+        <div class="streak-top">
+
+            <h2>🔥 DSA Streak Tracker</h2>
+
+            <div id="streakCount">
+
+                0 Days
+
+            </div>
+
+        </div>
+
+        <button id="openTracker">
+
+            Update Today's Progress
+
+        </button>
+
+    </div>
+    <!-- =========================
+     HISTORY SECTION
+========================= -->
+
+<div class="history-section">
+
+    <div id="toggleHistory" class="history-trigger">
+
+    <div class="history-trigger-left">
+
+        <div class="history-icon">
+
+            📊
+
+        </div>
+
+        <div>
+
+            <h3>
+
+                Progress History
+
+            </h3>
+
+            <p>
+
+                Track every study session and streak
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="history-trigger-right">
+
+        <span id="historyCount">
+
+            0 Days
+
+        </span>
+
+        <div id="historyArrow">
+
+            ➜
+
+        </div>
+
+    </div>
+
+</div>
+
+    <div
+    id="historyWrapper"
+    class="history-wrapper">
+
+        <div id="historyContainer">
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<section class="problems-section">
+
+    <div class="problems-card">
+
+        <h2>
+
+            💻 Problems Tracker
+
+        </h2>
+
+        <p>
+
+            Track every DSA problem you solve.
+
+        </p>
+
+        <div class="problem-stats">
+
+            <div>
+
+                <h3 id="totalProblems">
+
+                    0
+
+                </h3>
+
+                <span>
+
+                    Problems Solved
+
+                </span>
+
+            </div>
+
+            <div>
+
+                <h3 id="totalTimeSpent">
+
+                    0 Min
+
+                </h3>
+
+                <span>
+
+                    Total Time
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <button id="openProblemsBtn" class="problems-btn">
+
+    <span>📚</span>
+
+    View Problems
+
+    <div class="btn-glow"></div>
+
+</button>
+
+    </div>
+
+</section>
+
+
+            <!-- STATS -->
+
+            <div class="hero-stats">
+
+            </div>
+
+
+
+            <!-- BADGES -->
+
+            <div class="badges-row">
+
+                <span>
+
+                    🏆 Arrays Master
+
+                </span>
+
+                <span>
+
+                    ⚡ DP Warrior
+
+                </span>
+
+                <span>
+
+                    🔥 Consistency King
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="hero-right">
+
+                <div class="algobot-container">
+
+    <div class="algobot">
+
+        🤖
+
+    </div>
+
+    <div class="algobot-message">
+
+        <span id="botText">
+
+            Ready to crack Google today? 🚀
+
+        </span>
+
+    </div>
+
+</div>
+
+            <!-- INTERVIEW READINESS -->
+
+            <div class="score-card">
+
+
+                <div class="score-ring">
+
+
+                    <svg>
+
+                        <circle
+                        cx="90"
+                        cy="90"
+                        r="75"></circle>
+
+                        <circle
+                        cx="90"
+                        cy="90"
+                        r="75"
+                        class="progress"></circle>
+
+                    </svg>
+
+
+                    <div class="score-text">
+
+                        <h2 id="readinessScore">
+    0%
+</h2>
+
+                        <span>
+
+                            Ready
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <h3>
+
+                    Interview Readiness
+
+                </h3>
+
+
+                <p>
+
+    Based on your DSA coverage,
+    revision consistency and
+    practice activity.
+
+</p>
+
+<div class="readiness-info">
+
+    <p id="readinessStatus">
+
+        🟡 Needs More Revision
+
+    </p>
+
+    <p id="lastReadinessUpdate">
+
+        📅 Last Updated: Never
+
+    </p>
+
+</div>
+
+
+<button id="updateReadinessBtn"
+class="readiness-btn">
+
+    📈 Update Today's Readiness
+
+</button>
+
+            </div>
+
+
+
+            <!-- DAILY CHALLENGE -->
+
+            <!-- DAILY CHALLENGE -->
+
+<div class="challenge-preview">
+
+    <div class="challenge-label">
+
+        ⚡ TODAY'S CHALLENGE
+
+    </div>
+
+    <h3 id="challengeCompany">
+
+        Amazon Medium
+
+    </h3>
+
+    <p id="challengeProblem">
+
+        Sliding Window Pattern
+
+    </p>
+
+    <span id="challengeTime">
+
+        Estimated Time: 20 Minutes
+
+    </span>
+
+    <a
+    id="challengeLink"
+    target="_blank"
+    class="challenge-btn">
+
+        Solve Challenge 🚀
+
+    </a>
+
+</div>
+
+
+
+<!-- =========================================
+     DAILY INSIGHT PRO
+========================================= -->
+
+<div class="quote-card">
+
+    <div class="quote-top">
+
+        <div class="quote-badge">
+
+            💡 DAILY INSIGHT
+
+        </div>
+
+        <div class="quote-date">
+
+            Today
+
+        </div>
+
+    </div>
+
+    <div class="quote-icon">
+
+        ✨
+
+    </div>
+
+    <p id="dailyQuote">
+
+        Loading today's wisdom...
+
+    </p>
+
+    <div class="quote-footer">
+
+        <span>
+
+            Powered by Consistency
+
+        </span>
+
+    </div>
+
+</div>
+
+        </div>
+
+    </div>
+
+</section>
+<div class="tracker-modal" id="trackerModal">
+
+    <div class="tracker-content">
+
+        <h2>
+
+            Daily Progress Update
+
+        </h2>
+
+        <label>
+
+            Did you study DSA today?
+
+        </label>
+
+        <select id="studiedToday">
+
+            <option value="">
+
+                Select
+
+            </option>
+
+            <option value="yes">
+
+                Yes
+
+            </option>
+
+            <option value="no">
+
+                No
+
+            </option>
+
+        </select>
+
+
+        <div id="extraQuestions">
+
+            <input
+            type="text"
+            id="topic"
+            placeholder="Topic Studied">
+
+            <input
+            type="text"
+            id="timeSpent"
+            placeholder="Time Spent (e.g. 2 Hours)">
+
+            <select id="rating">
+
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="5">⭐⭐⭐⭐⭐</option>
+
+            </select>
+
+        </div>
+
+        <button id="saveProgress">
+
+            🚀 Confirm Today's Progress
+
+        </button>
+
+    </div>
+
+</div>
+<!-- =========================================
+     READINESS MODAL
+========================================= -->
+
+<div id="readinessModal" class="readiness-modal">
+
+    <div class="readiness-content">
+
+        <h2>
+            🎯 Update Today's Readiness
+        </h2>
+
+        <div class="question-group">
+
+            <label>
+                Did you study DSA today?
+            </label>
+
+            <select id="studyToday">
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="yes">
+                    Yes
+                </option>
+
+                <option value="no">
+                    No
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="question-group">
+
+            <label>
+                Total Study Time Today (minutes)
+            </label>
+
+            <input
+            type="number"
+            id="studyTime"
+            placeholder="e.g. 45">
+
+        </div>
+
+        <div class="question-group">
+
+            <label>
+                Solved Any DSA Problem?
+            </label>
+
+            <select id="problemSolved">
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="yes">
+                    Yes
+                </option>
+
+                <option value="no">
+                    No
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="question-group">
+
+            <label>
+                Revised Previous Topics?
+            </label>
+
+            <select id="revisionDone">
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="yes">
+                    Yes
+                </option>
+
+                <option value="no">
+                    No
+                </option>
+
+            </select>
+
+        </div>
+
+        <button id="saveReadiness">
+
+            🚀 Calculate Readiness
+
+        </button>
+
+    </div>
+
+</div>
+
+<div id="problemsModal" class="problems-modal">
+
+    <div class="problems-content">
+
+        <h2>
+
+            💻 Solved Problems
+
+        </h2>
+
+        <div class="add-problem-form">
+
+            <input
+            type="text"
+            id="problemName"
+            placeholder="Problem Name">
+
+            <input
+            type="number"
+            id="problemTime"
+            placeholder="Time Taken (minutes)">
+
+            <button id="saveProblem">
+
+                Add Problem
+
+            </button>
+
+        </div>
+
+        <div id="problemsList">
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+
+</html>
