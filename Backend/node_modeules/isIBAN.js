@@ -1,6 +1,13 @@
-import assertString from './util/assertString';
-import includes from './util/includesArray';
+"use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isIBAN;
+exports.locales = void 0;
+var _assertString = _interopRequireDefault(require("./util/assertString"));
+var _includesArray = _interopRequireDefault(require("./util/includesArray"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 /**
  * List of country codes with
  * corresponding IBAN regular expression
@@ -125,13 +132,13 @@ function hasValidIbanFormat(str, options) {
     if (!hasOnlyValidCountryCodes(options.whitelist)) {
       return false;
     }
-    var isoCountryCodeInWhiteList = includes(options.whitelist, isoCountryCode);
+    var isoCountryCodeInWhiteList = (0, _includesArray.default)(options.whitelist, isoCountryCode);
     if (!isoCountryCodeInWhiteList) {
       return false;
     }
   }
   if (options.blacklist) {
-    var isoCountryCodeInBlackList = includes(options.blacklist, isoCountryCode);
+    var isoCountryCodeInBlackList = (0, _includesArray.default)(options.blacklist, isoCountryCode);
     if (isoCountryCodeInBlackList) {
       return false;
     }
@@ -155,17 +162,17 @@ function hasValidIbanFormat(str, options) {
 function hasValidIbanChecksum(str) {
   var strippedStr = str.replace(/[^A-Z0-9]+/gi, '').toUpperCase(); // Keep only digits and A-Z latin alphabetic
   var rearranged = strippedStr.slice(4) + strippedStr.slice(0, 4);
-  var alphaCapsReplacedWithDigits = rearranged.replace(/[A-Z]/g, function (_char) {
-    return _char.charCodeAt(0) - 55;
+  var alphaCapsReplacedWithDigits = rearranged.replace(/[A-Z]/g, function (char) {
+    return char.charCodeAt(0) - 55;
   });
   var remainder = alphaCapsReplacedWithDigits.match(/\d{1,7}/g).reduce(function (acc, value) {
     return Number(acc + value) % 97;
   }, '');
   return remainder === 1;
 }
-export default function isIBAN(str) {
+function isIBAN(str) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  assertString(str);
+  (0, _assertString.default)(str);
   return hasValidIbanFormat(str, options) && hasValidIbanChecksum(str);
 }
-export var locales = Object.keys(ibanRegexThroughCountryCode);
+var locales = exports.locales = Object.keys(ibanRegexThroughCountryCode);

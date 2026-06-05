@@ -1,15 +1,22 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isJSON;
+var _assertString = _interopRequireDefault(require("./util/assertString"));
+var _includesArray = _interopRequireDefault(require("./util/includesArray"));
+var _merge = _interopRequireDefault(require("./util/merge"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-import assertString from './util/assertString';
-import includes from './util/includesArray';
-import merge from './util/merge';
 var default_json_options = {
   allow_primitives: false,
   allow_any_value: false
 };
-export default function isJSON(str, options) {
-  assertString(str);
+function isJSON(str, options) {
+  (0, _assertString.default)(str);
   try {
-    options = merge(options, default_json_options);
+    options = (0, _merge.default)(options, default_json_options);
     var obj = JSON.parse(str);
 
     // When allow_any_value is true, accept anything that JSON.parse successfully parses
@@ -20,7 +27,9 @@ export default function isJSON(str, options) {
     if (options.allow_primitives) {
       primitives = [null, false, true];
     }
-    return includes(primitives, obj) || !!obj && _typeof(obj) === 'object';
+    return (0, _includesArray.default)(primitives, obj) || !!obj && _typeof(obj) === 'object';
   } catch (e) {/* ignore */}
   return false;
 }
+module.exports = exports.default;
+module.exports.default = exports.default;

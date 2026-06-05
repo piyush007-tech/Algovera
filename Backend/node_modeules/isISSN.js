@@ -1,8 +1,15 @@
-import assertString from './util/assertString';
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isISSN;
+var _assertString = _interopRequireDefault(require("./util/assertString"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 var issn = '^\\d{4}-?\\d{3}[\\dX]$';
-export default function isISSN(str) {
+function isISSN(str) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  assertString(str);
+  (0, _assertString.default)(str);
   var testIssn = issn;
   testIssn = options.require_hyphen ? testIssn.replace('?', '') : testIssn;
   testIssn = options.case_sensitive ? new RegExp(testIssn) : new RegExp(testIssn, 'i');
@@ -17,3 +24,5 @@ export default function isISSN(str) {
   }
   return checksum % 11 === 0;
 }
+module.exports = exports.default;
+module.exports.default = exports.default;

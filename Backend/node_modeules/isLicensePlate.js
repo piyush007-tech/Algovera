@@ -1,4 +1,11 @@
-import assertString from './util/assertString';
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isLicensePlate;
+var _assertString = _interopRequireDefault(require("./util/assertString"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 var validators = {
   'cs-CZ': function csCZ(str) {
     return /^(([ABCDEFHIJKLMNPRSTUVXYZ]|[0-9])-?){5,8}$/.test(str);
@@ -40,8 +47,8 @@ var validators = {
     return /(^[A-Z]{2}((\s|-){0,1})[0-9]{3,4}((\s|-)[0-9]{2}){0,1}$)|(^[A-Z]{3}((\s|-){0,1})[0-9]{3,4}((\s|-)[0-9]{2}){0,1}$)|(^[A-Z]{4}((\s|-){0,1})[0-9]{3,4}((\s|-)[0-9]{2}){0,1}$)|(^[A-Z]((\s|-){0,1})[0-9]{4}((\s|-)[0-9]{2}){0,1}$)/.test(str.trim());
   }
 };
-export default function isLicensePlate(str, locale) {
-  assertString(str);
+function isLicensePlate(str, locale) {
+  (0, _assertString.default)(str);
   if (locale in validators) {
     return validators[locale](str);
   } else if (locale === 'any') {
@@ -56,3 +63,5 @@ export default function isLicensePlate(str, locale) {
   }
   throw new Error("Invalid locale '".concat(locale, "'"));
 }
+module.exports = exports.default;
+module.exports.default = exports.default;

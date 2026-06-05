@@ -1,9 +1,15 @@
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-import assertString from './util/assertString';
+"use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isLength;
+var _assertString = _interopRequireDefault(require("./util/assertString"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 /* eslint-disable prefer-rest-params */
-export default function isLength(str, options) {
-  assertString(str);
+function isLength(str, options) {
+  (0, _assertString.default)(str);
   var min;
   var max;
   if (_typeof(options) === 'object') {
@@ -25,3 +31,5 @@ export default function isLength(str, options) {
   }
   return isInsideRange;
 }
+module.exports = exports.default;
+module.exports.default = exports.default;

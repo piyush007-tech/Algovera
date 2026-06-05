@@ -1,9 +1,16 @@
-import assertString from './util/assertString';
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isDataURI;
+var _assertString = _interopRequireDefault(require("./util/assertString"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 var validMediaType = /^[a-z]+\/[a-z0-9\-\+\._]+$/i;
 var validAttribute = /^[a-z\-]+=[a-z0-9\-]+$/i;
 var validData = /^[a-z0-9!\$&'\(\)\*\+,;=\-\._~:@\/\?%\s]*$/i;
-export default function isDataURI(str) {
-  assertString(str);
+function isDataURI(str) {
+  (0, _assertString.default)(str);
   var data = str.split(',');
   if (data.length < 2) {
     return false;
@@ -29,3 +36,5 @@ export default function isDataURI(str) {
   }
   return true;
 }
+module.exports = exports.default;
+module.exports.default = exports.default;

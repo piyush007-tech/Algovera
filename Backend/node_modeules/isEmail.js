@@ -1,9 +1,16 @@
-import assertString from './util/assertString';
-import checkHost from './util/checkHost';
-import isByteLength from './isByteLength';
-import isFQDN from './isFQDN';
-import isIP from './isIP';
-import merge from './util/merge';
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isEmail;
+var _assertString = _interopRequireDefault(require("./util/assertString"));
+var _checkHost = _interopRequireDefault(require("./util/checkHost"));
+var _isByteLength = _interopRequireDefault(require("./isByteLength"));
+var _isFQDN = _interopRequireDefault(require("./isFQDN"));
+var _isIP = _interopRequireDefault(require("./isIP"));
+var _merge = _interopRequireDefault(require("./util/merge"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 var default_email_options = {
   allow_display_name: false,
   allow_underscores: false,
@@ -56,9 +63,9 @@ function validateDisplayName(display_name) {
   }
   return true;
 }
-export default function isEmail(str, options) {
-  assertString(str);
-  options = merge(options, default_email_options);
+function isEmail(str, options) {
+  (0, _assertString.default)(str);
+  options = (0, _merge.default)(options, default_email_options);
   if (options.require_display_name || options.allow_display_name) {
     var display_email = str.match(splitNameAddress);
     if (display_email) {
@@ -88,10 +95,10 @@ export default function isEmail(str, options) {
   var parts = str.split('@');
   var domain = parts.pop();
   var lower_domain = domain.toLowerCase();
-  if (options.host_blacklist.length > 0 && checkHost(lower_domain, options.host_blacklist)) {
+  if (options.host_blacklist.length > 0 && (0, _checkHost.default)(lower_domain, options.host_blacklist)) {
     return false;
   }
-  if (options.host_whitelist.length > 0 && !checkHost(lower_domain, options.host_whitelist)) {
+  if (options.host_whitelist.length > 0 && !(0, _checkHost.default)(lower_domain, options.host_whitelist)) {
     return false;
   }
   var user = parts.join('@');
@@ -109,7 +116,7 @@ export default function isEmail(str, options) {
     var username = user.split('+')[0];
 
     // Dots are not included in gmail length restriction
-    if (!isByteLength(username.replace(/\./g, ''), {
+    if (!(0, _isByteLength.default)(username.replace(/\./g, ''), {
       min: 6,
       max: 30
     })) {
@@ -122,14 +129,14 @@ export default function isEmail(str, options) {
       }
     }
   }
-  if (options.ignore_max_length === false && (!isByteLength(user, {
+  if (options.ignore_max_length === false && (!(0, _isByteLength.default)(user, {
     max: 64
-  }) || !isByteLength(domain, {
+  }) || !(0, _isByteLength.default)(domain, {
     max: 254
   }))) {
     return false;
   }
-  if (!isFQDN(domain, {
+  if (!(0, _isFQDN.default)(domain, {
     require_tld: options.require_tld,
     ignore_max_length: options.ignore_max_length,
     allow_underscores: options.allow_underscores
@@ -137,12 +144,12 @@ export default function isEmail(str, options) {
     if (!options.allow_ip_domain) {
       return false;
     }
-    if (!isIP(domain)) {
+    if (!(0, _isIP.default)(domain)) {
       if (!domain.startsWith('[') || !domain.endsWith(']')) {
         return false;
       }
       var noBracketdomain = domain.slice(1, -1);
-      if (noBracketdomain.length === 0 || !isIP(noBracketdomain)) {
+      if (noBracketdomain.length === 0 || !(0, _isIP.default)(noBracketdomain)) {
         return false;
       }
     }
@@ -163,3 +170,5 @@ export default function isEmail(str, options) {
   }
   return true;
 }
+module.exports = exports.default;
+module.exports.default = exports.default;

@@ -1,5 +1,12 @@
-import merge from './util/merge';
-import assertString from './util/assertString';
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isStrongPassword;
+var _merge = _interopRequireDefault(require("./util/merge"));
+var _assertString = _interopRequireDefault(require("./util/assertString"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 var upperCaseRegex = /^[A-Z]$/;
 var lowerCaseRegex = /^[a-z]$/;
 var numberRegex = /^[0-9]$/;
@@ -24,12 +31,12 @@ var defaultOptions = {
 */
 function countChars(str) {
   var result = {};
-  Array.from(str).forEach(function (_char) {
-    var curVal = result[_char];
+  Array.from(str).forEach(function (char) {
+    var curVal = result[char];
     if (curVal) {
-      result[_char] += 1;
+      result[char] += 1;
     } else {
-      result[_char] = 1;
+      result[char] = 1;
     }
   });
   return result;
@@ -46,16 +53,16 @@ function analyzePassword(password) {
     numberCount: 0,
     symbolCount: 0
   };
-  Object.keys(charMap).forEach(function (_char2) {
+  Object.keys(charMap).forEach(function (char) {
     /* istanbul ignore else */
-    if (upperCaseRegex.test(_char2)) {
-      analysis.uppercaseCount += charMap[_char2];
-    } else if (lowerCaseRegex.test(_char2)) {
-      analysis.lowercaseCount += charMap[_char2];
-    } else if (numberRegex.test(_char2)) {
-      analysis.numberCount += charMap[_char2];
-    } else if (symbolRegex.test(_char2)) {
-      analysis.symbolCount += charMap[_char2];
+    if (upperCaseRegex.test(char)) {
+      analysis.uppercaseCount += charMap[char];
+    } else if (lowerCaseRegex.test(char)) {
+      analysis.lowercaseCount += charMap[char];
+    } else if (numberRegex.test(char)) {
+      analysis.numberCount += charMap[char];
+    } else if (symbolRegex.test(char)) {
+      analysis.symbolCount += charMap[char];
     }
   });
   return analysis;
@@ -78,13 +85,15 @@ function scorePassword(analysis, scoringOptions) {
   }
   return points;
 }
-export default function isStrongPassword(str) {
+function isStrongPassword(str) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-  assertString(str);
+  (0, _assertString.default)(str);
   var analysis = analyzePassword(str);
-  options = merge(options || {}, defaultOptions);
+  options = (0, _merge.default)(options || {}, defaultOptions);
   if (options.returnScore) {
     return scorePassword(analysis, options);
   }
   return analysis.length >= options.minLength && analysis.lowercaseCount >= options.minLowercase && analysis.uppercaseCount >= options.minUppercase && analysis.numberCount >= options.minNumbers && analysis.symbolCount >= options.minSymbols;
 }
+module.exports = exports.default;
+module.exports.default = exports.default;

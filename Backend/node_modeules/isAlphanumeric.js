@@ -1,9 +1,17 @@
-import assertString from './util/assertString';
-import { alphanumeric } from './alpha';
-export default function isAlphanumeric(_str) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isAlphanumeric;
+exports.locales = void 0;
+var _assertString = _interopRequireDefault(require("./util/assertString"));
+var _alpha = require("./alpha");
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function isAlphanumeric(_str) {
   var locale = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'en-US';
   var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-  assertString(_str);
+  (0, _assertString.default)(_str);
   var str = _str;
   var ignore = options.ignore;
   if (ignore) {
@@ -15,9 +23,9 @@ export default function isAlphanumeric(_str) {
       throw new Error('ignore should be instance of a String or RegExp');
     }
   }
-  if (locale in alphanumeric) {
-    return alphanumeric[locale].test(str);
+  if (locale in _alpha.alphanumeric) {
+    return _alpha.alphanumeric[locale].test(str);
   }
   throw new Error("Invalid locale '".concat(locale, "'"));
 }
-export var locales = Object.keys(alphanumeric);
+var locales = exports.locales = Object.keys(_alpha.alphanumeric);
